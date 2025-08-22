@@ -1,0 +1,21 @@
+/*
+ * Lesson_1.c
+ *
+ * Created: 20.08.2025 11:20:27
+ * Author : Artem
+ */ 
+
+#include <avr/io.h>
+
+
+int main(void)
+{
+    /* Replace with your application code */
+	DDRB = 0b01000000;
+	PORTB = 0b01000000;
+    while (1) 
+    {
+		
+    }
+}
+
