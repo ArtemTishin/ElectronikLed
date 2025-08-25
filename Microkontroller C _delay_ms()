@@ -1,0 +1,48 @@
+/*
+ * Lection2.c
+ *
+ * Created: 22.08.2025 5:37:51
+ * Author : Artem
+ */ 
+# define F_CPU 1000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+
+
+int main(void)
+{
+    /* Replace with your application code */
+	
+	//DDRD = 0b00000010;
+	//PORTD = 0b00000010;
+	//DDRD = 0b00000010;
+	//PORTD = 0b00000010;
+	// Порт  С
+	DDRC = 0b00000001;
+	PORTC = 0b00000001;
+	// Порт D
+	DDRD = 0b00000010;
+	PORTD = 0b00000010;
+    while (1) 
+    {
+		//Порт D
+		PORTD = 0b00000010;
+		// Задержка 1 секунда
+		_delay_ms(1000);
+		
+		PORTD = 0b00000001;
+		// Задержка 1 секунда
+		_delay_ms(1000);
+		
+		// Порт С
+		PORTC = 0b00000000;
+		// Задержка 1 секунда
+		_delay_ms(1000);
+		
+		
+		PORTC = 0b00000001;
+		// Задержка 1 секунда
+		_delay_ms(1000);
+    }
+}
+
