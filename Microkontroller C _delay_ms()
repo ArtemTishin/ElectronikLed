@@ -2,12 +2,14 @@
  * Lection2.c
  *
  * Created: 22.08.2025 5:37:51
- * Author : Artem
+ * Author : Tishin
  */ 
 # define F_CPU 1000000UL
 #include <avr/io.h>
 #include <util/delay.h>
-
+#define SVETODIOD PORTD
+#define  SVETODIODC PORTC
+#define DELAY 1000
 
 int main(void)
 {
@@ -19,30 +21,30 @@ int main(void)
 	//PORTD = 0b00000010;
 	// Порт  С
 	DDRC = 0b00000001;
-	PORTC = 0b00000001;
+	SVETODIODC = 0b00000001;
 	// Порт D
 	DDRD = 0b00000010;
-	PORTD = 0b00000010;
+	SVETODIOD = 0b00000010;
     while (1) 
     {
 		//Порт D
-		PORTD = 0b00000010;
+		SVETODIOD = 0b00000011;
 		// Задержка 1 секунда
-		_delay_ms(1000);
+		_delay_ms(DELAY);
 		
-		PORTD = 0b00000001;
+		SVETODIOD = 0b00000000;
 		// Задержка 1 секунда
-		_delay_ms(1000);
+		_delay_ms(DELAY);
 		
 		// Порт С
-		PORTC = 0b00000000;
+		SVETODIODC = 0b00000000;
 		// Задержка 1 секунда
-		_delay_ms(1000);
+		_delay_ms(DELAY);
 		
 		
-		PORTC = 0b00000001;
+		SVETODIODC = 0b00000001;
 		// Задержка 1 секунда
-		_delay_ms(1000);
+		_delay_ms(DELAY);
     }
 }
 
